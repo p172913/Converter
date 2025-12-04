@@ -1,0 +1,70 @@
+services:
+  - type: web
+    name: image-to-pdf-backend
+    env: docker
+    rootDir: image-to-pdf-converter/backend
+    plan: free
+    dockerfilePath: Dockerfile
+    envVars:
+      - key: PORT
+        value: 8000
+
+  - type: web
+    name: jpg-to-pdf-backend
+    env: docker
+    rootDir: jpg-to-pdf-converter/backend
+    plan: free
+    dockerfilePath: Dockerfile
+    envVars:
+      - key: PORT
+        value: 8001
+
+  - type: web
+    name: png-to-pdf-backend
+    env: docker
+    rootDir: png-to-pdf-converter/backend
+    plan: free
+    dockerfilePath: Dockerfile
+    envVars:
+      - key: PORT
+        value: 8002
+
+  - type: web
+    name: word-to-pdf-backend
+    env: docker
+    rootDir: word-to-pdf-converter/backend
+    plan: free
+    dockerfilePath: Dockerfile
+    envVars:
+      - key: PORT
+        value: 8003
+
+  - type: web
+    name: jpg-to-png-backend
+    env: docker
+    rootDir: jpg-to-png-converter/backend
+    plan: free
+    dockerfilePath: Dockerfile
+    envVars:
+      - key: PORT
+        value: 8004
+
+  - type: web
+    name: png-to-jpg-backend
+    env: docker
+    rootDir: png-to-jpg-converter/backend
+    plan: free
+    dockerfilePath: Dockerfile
+    envVars:
+      - key: PORT
+        value: 8005
+
+  - type: web
+    name: excel-to-pdf-backend
+    env: docker
+    rootDir: excel-to-pdf-converter/backend
+    plan: free
+    dockerfilePath: Dockerfile
+    envVars:
+      - key: PORT
+        value: 8006
