@@ -44,7 +44,7 @@ const App = () => {
                     <li><a href={`${image_to_pdf_frontend}`} target="_blank">Image to PDF</a></li>
                     <li><a href={`${jpg_to_pdf_frontend}`} target="_blank">JPG to PDF</a></li>
                     <li><a href={`${png_to_pdf_frontend}`} target="_blank">PNG to PDF</a></li>
-                    <li><a href={`${word_to_pdf_frontend}`} target="_blank">Excel to PDF</a></li>
+                    <li><a href={`${word_to_pdf_frontend}`} target="_blank">Word to PDF</a></li>
                     <li><a href={`${jpg_to_png_frontend}`} target="_blank">JPG to PNG</a></li>
                     <li><a href={`${png_to_jpg_frontend}`} target="_blank">PNG to JPG</a></li>
                     <li><a href={`${excel_to_pdf_frontend}`} target="_blank">Excel to PDF</a></li>
