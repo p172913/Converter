@@ -20,20 +20,21 @@ const ImageUploader = () => {
         formData.append('file', file);
 
         try {
-            const response = await axios.post('http://localhost:8005/convert/', formData);
+            const png_to_jpg_backend = process.env.png_to_jpg_backend;
+            const response = await axios.post(`${png_to_jpg_backend}/convert/`, formData);
             setPdfFile(response.data.filename); // Assuming the response contains the filename
             setError('');
         } catch (err) {
             setError('Error converting PNG to JPG. Please try again.');
         }
     };
-
+    const png_to_jpg_backend = process.env.png_to_jpg_backend;
     return (
         <div>
             <input type="file" accept="image/*" onChange={handleFileChange} />
             <button onClick={handleUpload}>Convert to JPG</button>
             {error && <p>{error}</p>}
-            {pdfFile && <a href={`http://localhost:8005/uploads/${pdfFile}`} download>Download PDF</a>}
+            {pdfFile && <a href={`${png_to_jpg_backend}/uploads/${pdfFile}`} download>Download PDF</a>}
         </div>
     );
 };

@@ -152,7 +152,8 @@ const WordUploader = () => {
         formData.append('files', file);
 
         try {
-            const response = await axios.post('http://localhost:8003/convert/', formData);
+            const word_to_pdf_backend = process.env.word_to_pdf_backend;
+            const response = await axios.post(`${word_to_pdf_backend}/convert/`, formData);
             setPdfFile(response.data.pdfs[0]); // Assuming the response returns an array
             setError('');
         } catch (err) {
@@ -163,7 +164,8 @@ const WordUploader = () => {
     const handleDownload = () => {
         if (pdfFile) {
             const link = document.createElement('a');
-            link.href = `http://localhost:8003${pdfFile}`;
+            const word_to_pdf_backend = process.env.word_to_pdf_backend;
+            link.href = `${word_to_pdf_backend}/${pdfFile}`;
             link.setAttribute('download', pdfFile.split('/').pop());
             document.body.appendChild(link);
             link.click();

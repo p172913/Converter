@@ -1,7 +1,7 @@
 import axios from 'axios';
-
+const word_to_pdf_backend = process.env.word_to_pdf_backend;
 const api = axios.create({
-    baseURL: 'http://localhost:8003', // Adjust based on your backend URL
+    baseURL: `${word_to_pdf_backend}`, // Adjust based on your backend URL
 });
 
 export const uploadImage = async (file) => {

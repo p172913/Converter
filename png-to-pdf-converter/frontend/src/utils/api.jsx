@@ -1,7 +1,8 @@
 import axios from 'axios';
 
+const png_to_pdf_backend = process.env.png_to_pdf_backend;
 const api = axios.create({
-    baseURL: 'http://localhost:8002', // Adjust based on your backend URL
+    baseURL: `${png_to_pdf_backend}`, // Adjust based on your backend URL
 });
 
 export const uploadImage = async (file) => {

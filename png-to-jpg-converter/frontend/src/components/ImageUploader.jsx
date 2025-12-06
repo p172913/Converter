@@ -111,7 +111,8 @@ const ImageUploader = () => {
         formData.append('files', file);
 
         try {
-            const response = await axios.post('http://localhost:8005/convert/', formData);
+            const png_to_jpg_backend = process.env.png_to_jpg_backend;
+            const response = await axios.post(`${png_to_jpg_backend}/convert/`, formData);
             setDownloadLink(response.data.filenames[0]);
             setError('');
         } catch (err) {
@@ -123,13 +124,15 @@ const ImageUploader = () => {
         if (!downloadLink) return;
 
         const link = document.createElement('a');
-        link.href = `http://localhost:8005/uploads/${downloadLink}`;
+        const png_to_jpg_backend = process.env.png_to_jpg_backend;
+        link.href = `${png_to_jpg_backend}/uploads/${downloadLink}`;
         link.setAttribute('download', downloadLink);
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
     };
 
+    const jpg_to_png_backend = process.env.jpg_to_png_backend;
     return (
         <div className="image-uploader">
             <h1>JPG to PNG Converter</h1>
@@ -152,7 +155,7 @@ const ImageUploader = () => {
                     <h3>Download Link:</h3>
                     <button onClick={handleDownload}>Download JPG</button>
                     <br />
-                    <img src={`http://localhost:8005/uploads/${downloadLink}`} alt="Converted" width="300" />
+                    <img src={`${jpg_to_png_backend}/uploads/${downloadLink}`} alt="Converted" width="300" />
                 </div>
             )}
         </div>

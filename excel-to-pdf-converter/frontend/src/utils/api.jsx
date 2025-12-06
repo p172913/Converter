@@ -1,7 +1,8 @@
 import axios from 'axios';
 
+const excel_to_pdf_backend = process.env.excel_to_pdf_backend;
 const api = axios.create({
-    baseURL: 'http://localhost:8006', // Adjust based on your backend URL
+    baseURL: `${excel_to_pdf_backend}`, // Adjust based on your backend URL
 });
 
 export const uploadImage = async (file) => {

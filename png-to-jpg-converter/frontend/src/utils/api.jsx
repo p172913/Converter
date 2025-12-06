@@ -1,7 +1,8 @@
 import axios from 'axios';
 
+const png_to_jpg_backend = process.env.png_to_jpg_backend;
 const api = axios.create({
-    baseURL: 'http://localhost:8005', // Adjust based on your backend URL
+    baseURL: `${png_to_jpg_backend}`, // Adjust based on your backend URL
 });
 
 export const uploadImage = async (file) => {

@@ -20,20 +20,21 @@ const ImageUploader = () => {
         formData.append('file', file);
 
         try {
-            const response = await axios.post('http://localhost:8003/convert/', formData);
+            const word_to_pdf_backend = process.env.word_to_pdf_backend;
+            const response = await axios.post(`{${word_to_pdf_backend}/convert/`, formData);
             setPdfFile(response.data.filename); // Assuming the response contains the filename
             setError('');
         } catch (err) {
             setError('Error converting Word to PDF. Please try again.');
         }
     };
-
+    const word_to_pdf_backend = process.env.word_to_pdf_backend;
     return (
         <div>
             <input type="file" accept="image/*" onChange={handleFileChange} />
             <button onClick={handleUpload}>Convert to PDF</button>
             {error && <p>{error}</p>}
-            {pdfFile && <a href={`http://localhost:8003/converted/${pdfFile}`} download>Download PDF</a>}
+            {pdfFile && <a href={`${word_to_pdf_backend}/converted/${pdfFile}`} download>Download PDF</a>}
         </div>
     );
 };

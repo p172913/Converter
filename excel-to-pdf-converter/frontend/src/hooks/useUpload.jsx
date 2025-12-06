@@ -20,20 +20,21 @@ const ImageUploader = () => {
         formData.append('file', file);
 
         try {
-            const response = await axios.post('http://localhost:8006/convert/', formData);
+            const excel_to_pdf_backend = process.env.excel_to_pdf_backend;
+            const response = await axios.post(`${excel_to_pdf_backend}/convert/`, formData);
             setPdfFile(response.data.filename); // Assuming the response contains the filename
             setError('');
         } catch (err) {
             setError('Error converting Excel to PDF. Please try again.');
         }
     };
-
+    const excel_to_pdf_backend = process.env.excel_to_pdf_backend;
     return (
         <div>
             <input type="file" accept="image/*" onChange={handleFileChange} />
             <button onClick={handleUpload}>Convert to PDF</button>
             {error && <p>{error}</p>}
-            {pdfFile && <a href={`http://localhost:8006/converted/${pdfFile}`} download>Download PDF</a>}
+            {pdfFile && <a href={`${excel_to_pdf_backend}/converted/${pdfFile}`} download>Download PDF</a>}
         </div>
     );
 };

@@ -20,7 +20,8 @@ const ImageUploader = () => {
         formData.append('file', file);
 
         try {
-            const response = await axios.post('http://localhost:8001/convert/', formData);
+            const jpg_to_pdf_backend = process.env.jpg_to_pdf_backend;
+            const response = await axios.post(`${jpg_to_pdf_backend}/convert/`, formData);
             setPdfFile(response.data.filename); // Assuming the response contains the filename
             setError('');
         } catch (err) {
@@ -28,12 +29,13 @@ const ImageUploader = () => {
         }
     };
 
+    const jpg_to_pdf_backend = process.env.jpg_to_pdf_backend;
     return (
         <div>
             <input type="file" accept="image/*" onChange={handleFileChange} />
             <button onClick={handleUpload}>Convert to PDF</button>
             {error && <p>{error}</p>}
-            {pdfFile && <a href={`http://localhost:8001/uploads/${pdfFile}`} download>Download PDF</a>}
+            {pdfFile && <a href={`${jpg_to_pdf_backend}/uploads/${pdfFile}`} download>Download PDF</a>}
         </div>
     );
 };
