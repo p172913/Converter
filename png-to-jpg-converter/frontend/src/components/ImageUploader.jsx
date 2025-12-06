@@ -132,7 +132,7 @@ const ImageUploader = () => {
         document.body.removeChild(link);
     };
 
-    const jpg_to_png_backend = process.env.jpg_to_png_backend;
+    const png_to_jpg_backend = process.env.png_to_jpg_backend;
     return (
         <div className="image-uploader">
             <h1>JPG to PNG Converter</h1>
@@ -155,7 +155,7 @@ const ImageUploader = () => {
                     <h3>Download Link:</h3>
                     <button onClick={handleDownload}>Download JPG</button>
                     <br />
-                    <img src={`${jpg_to_png_backend}/uploads/${downloadLink}`} alt="Converted" width="300" />
+                    <img src={`${png_to_jpg_backend}/uploads/${downloadLink}`} alt="Converted" width="300" />
                 </div>
             )}
         </div>

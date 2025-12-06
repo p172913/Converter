@@ -38,7 +38,7 @@ const excel_to_pdf_frontend = process.env.excel_to_pdf_frontend;
 const App = () => {
     return (
         <div>
-            <h1>Excel to PDF Converter</h1>
+            <h1>Image to PDF Converter</h1>
             <nav>
                 <ul>
                     <li><a href={`${image_to_pdf_frontend}`} target="_blank">Image to PDF</a></li>

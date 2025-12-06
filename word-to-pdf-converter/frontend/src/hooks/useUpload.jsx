@@ -21,7 +21,7 @@ const ImageUploader = () => {
 
         try {
             const word_to_pdf_backend = process.env.word_to_pdf_backend;
-            const response = await axios.post(`{${word_to_pdf_backend}/convert/`, formData);
+            const response = await axios.post(`${word_to_pdf_backend}/convert/`, formData);
             setPdfFile(response.data.filename); // Assuming the response contains the filename
             setError('');
         } catch (err) {
