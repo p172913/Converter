@@ -1,13 +1,20 @@
 import React from 'react';
 import '../public/App.css';
 import ImageUploader from './components/ImageUploader';
-const image_to_pdf_frontend = process.env.image_to_pdf_frontend;
-const jpg_to_pdf_frontend = process.env.jpg_to_pdf_frontend;
-const png_to_pdf_frontend = process.env.png_to_pdf_frontend;
-const word_to_pdf_frontend = process.env.word_to_pdf_frontend;
-const jpg_to_png_frontend = process.env.jpg_to_png_frontend;
-const png_to_jpg_frontend = process.env.png_to_jpg_frontend;
-const excel_to_pdf_frontend = process.env.excel_to_pdf_frontend;
+// const image_to_pdf_frontend = process.env.image_to_pdf_frontend;
+// const jpg_to_pdf_frontend = process.env.jpg_to_pdf_frontend;
+// const png_to_pdf_frontend = process.env.png_to_pdf_frontend;
+// const word_to_pdf_frontend = process.env.word_to_pdf_frontend;
+// const jpg_to_png_frontend = process.env.jpg_to_png_frontend;
+// const png_to_jpg_frontend = process.env.png_to_jpg_frontend;
+// const excel_to_pdf_frontend = process.env.excel_to_pdf_frontend;
+const image_to_pdf_frontend = import.meta.env.VITE_image_to_pdf_frontend;
+const jpg_to_pdf_frontend = import.meta.env.VITE_jpg_to_pdf_frontend;
+const png_to_pdf_frontend = import.meta.env.VITE_png_to_pdf_frontend;
+const word_to_pdf_frontend = import.meta.env.VITE_word_to_pdf_frontend;
+const jpg_to_png_frontend = import.meta.env.VITE_jpg_to_png_frontend;
+const png_to_jpg_frontend = import.meta.env.VITE_png_to_jpg_frontend;
+const excel_to_pdf_frontend = import.meta.env.VITE_excel_to_pdf_frontend;
 const App = () => {
     return (
         <div>
