@@ -20,7 +20,7 @@ const ImageUploader = () => {
         formData.append('file', file);
 
         try {
-            const word_to_pdf_backend = process.env.word_to_pdf_backend;
+            const word_to_pdf_backend = import.meta.env.VITE_word_to_pdf_backend;
             const response = await axios.post(`${word_to_pdf_backend}/convert/`, formData);
             setPdfFile(response.data.filename); // Assuming the response contains the filename
             setError('');
@@ -28,7 +28,7 @@ const ImageUploader = () => {
             setError('Error converting Word to PDF. Please try again.');
         }
     };
-    const word_to_pdf_backend = process.env.word_to_pdf_backend;
+    const word_to_pdf_backend = import.meta.env.VITE_word_to_pdf_backend;
     return (
         <div>
             <input type="file" accept="image/*" onChange={handleFileChange} />

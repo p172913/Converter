@@ -20,7 +20,7 @@ const ImageUploader = () => {
         formData.append('file', file);
 
         try {
-            const image_to_pdf_backend = process.env.image_to_pdf_backend;
+            const image_to_pdf_backend = import.meta.env.VITE_image_to_pdf_backend;
             const response = await axios.post(`${image_to_pdf_backend}/convert/`, formData);
             setPdfFile(response.data.filename); // Assuming the response contains the filename
             setError('');
@@ -28,7 +28,7 @@ const ImageUploader = () => {
             setError('Error converting image to PDF. Please try again.');
         }
     };
-    const image_to_pdf_backend = process.env.image_to_pdf_backend;
+    const image_to_pdf_backend = import.meta.env.VITE_image_to_pdf_backend;
     return (
         <div>
             <input type="file" accept="image/*" onChange={handleFileChange} />

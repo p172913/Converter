@@ -20,7 +20,7 @@ const ImageUploader = () => {
         formData.append('file', file);
 
         try {
-            const jpg_to_png_backend = process.env.jpg_to_png_backend;
+            const jpg_to_png_backend = import.meta.env.VITE_jpg_to_png_backend;
             const response = await axios.post(`${jpg_to_png_backend}/convert/`, formData);
             setPdfFile(response.data.filename); // Assuming the response contains the filename
             setError('');
@@ -28,7 +28,7 @@ const ImageUploader = () => {
             setError('Error converting JPG to PNG. Please try again.');
         }
     };
-    const jpg_to_png_backend = process.env.jpg_to_png_backend;
+    const jpg_to_png_backend = import.meta.env.VITE_jpg_to_png_backend;
     return (
         <div>
             <input type="file" accept="image/*" onChange={handleFileChange} />

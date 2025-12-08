@@ -1,5 +1,5 @@
 import axios from 'axios';
-const jpg_to_pdf_backend = process.env.jpg_to_pdf_backend;
+const jpg_to_pdf_backend = import.meta.env.VITE_jpg_to_pdf_backend;
 const api = axios.create({
     baseURL: `${jpg_to_pdf_backend}`, // Adjust based on your backend URL
 });

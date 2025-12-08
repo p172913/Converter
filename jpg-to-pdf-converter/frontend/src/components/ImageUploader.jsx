@@ -35,7 +35,7 @@ const ImageUploader = () => {
         });
 
         try {
-            const jpg_to_pdf_backend = process.env.jpg_to_pdf_backend;
+            const jpg_to_pdf_backend = import.meta.env.VITE_jpg_to_pdf_backend;
             const response = await axios.post(`${jpg_to_pdf_backend}/convert/`, formData);
             setPdfFile(response.data.filename); // Assuming response has filename
             setError('');
@@ -47,7 +47,7 @@ const ImageUploader = () => {
     const handleDownload = () => {
         if (pdfFile) {
             const link = document.createElement('a');
-            const jpg_to_pdf_backend = process.env.jpg_to_pdf_backend;
+            const jpg_to_pdf_backend = import.meta.env.VITE_jpg_to_pdf_backend;
             link.href = `${jpg_to_pdf_backend}/uploads/${pdfFile}`;
             link.setAttribute('download', pdfFile);
             document.body.appendChild(link);

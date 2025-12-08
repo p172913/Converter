@@ -1,5 +1,5 @@
 import axios from 'axios';
-const jpg_to_png_backend = process.env.jpg_to_png_backend;
+const jpg_to_png_backend = import.meta.env.VITE_jpg_to_png_backend;
 const api = axios.create({
     baseURL: `${jpg_to_png_backend}`, // Adjust based on your backend URL
 });

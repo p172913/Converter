@@ -111,7 +111,7 @@ const ImageUploader = () => {
         formData.append('files', file);
 
         try {
-            const png_to_jpg_backend = process.env.png_to_jpg_backend;
+            const png_to_jpg_backend = import.meta.env.VITE_png_to_jpg_backend;
             const response = await axios.post(`${png_to_jpg_backend}/convert/`, formData);
             setDownloadLink(response.data.filenames[0]);
             setError('');
@@ -124,7 +124,7 @@ const ImageUploader = () => {
         if (!downloadLink) return;
 
         const link = document.createElement('a');
-        const png_to_jpg_backend = process.env.png_to_jpg_backend;
+        const png_to_jpg_backend = import.meta.env.VITE_png_to_jpg_backend;
         link.href = `${png_to_jpg_backend}/uploads/${downloadLink}`;
         link.setAttribute('download', downloadLink);
         document.body.appendChild(link);
@@ -132,7 +132,7 @@ const ImageUploader = () => {
         document.body.removeChild(link);
     };
 
-    const png_to_jpg_backend = process.env.png_to_jpg_backend;
+    const png_to_jpg_backend = import.meta.env.VITE_png_to_jpg_backend;
     return (
         <div className="image-uploader">
             <h1>JPG to PNG Converter</h1>

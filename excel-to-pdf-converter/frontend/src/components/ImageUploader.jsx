@@ -153,7 +153,7 @@ const WordUploader = () => {
         formData.append('files', file);
 
         try {
-            const excel_to_pdf_backend = process.env.excel_to_pdf_backend;
+            const excel_to_pdf_backend = import.meta.env.VITE_excel_to_pdf_backend;
             const response = await axios.post(`${excel_to_pdf_backend}/convert/`, formData);
             setPdfFile(response.data.pdfs[0]); // Assuming the response returns an array
             setError('');
@@ -165,7 +165,7 @@ const WordUploader = () => {
     const handleDownload = () => {
         if (pdfFile) {
             const link = document.createElement('a');
-            const excel_to_pdf_backend = process.env.excel_to_pdf_backend;
+            const excel_to_pdf_backend = import.meta.env.VITE_excel_to_pdf_backend;
             link.href = `${excel_to_pdf_backend}/uploads/${pdfFile}`;
             link.setAttribute('download', pdfFile.split('/').pop());
             document.body.appendChild(link);
