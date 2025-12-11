@@ -140,6 +140,6 @@ async def convert_word_to_pdf(files: list[UploadFile] = File(...)):
         # Clean up uploaded file
         os.remove(upload_path)
 
-        pdf_urls.append(f"/converted/{output_filename}")
+        pdf_urls.append(f"converted/{output_filename}")
 
     return JSONResponse(content={"pdfs": pdf_urls})
