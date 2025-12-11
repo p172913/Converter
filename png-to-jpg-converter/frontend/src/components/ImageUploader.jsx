@@ -135,7 +135,7 @@ const ImageUploader = () => {
     const png_to_jpg_backend = import.meta.env.VITE_png_to_jpg_backend;
     return (
         <div className="image-uploader">
-            <h1>JPG to PNG Converter</h1>
+            <h1>PNG to JPG Converter</h1>
 
             <input
                 type="file"
